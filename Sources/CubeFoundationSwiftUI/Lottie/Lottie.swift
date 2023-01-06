@@ -27,7 +27,7 @@ public struct Lottie: UIViewRepresentable {
 
     private var animationView = LottieAnimationView()
 
-    func makeUIView(context: UIViewRepresentableContext<Lottie>) -> UIView {
+    public func makeUIView(context: UIViewRepresentableContext<Lottie>) -> UIView {
         let view = UIView(frame: .zero)
 
         animationView.animation = Animation.named(name.string)
@@ -46,7 +46,7 @@ public struct Lottie: UIViewRepresentable {
         return view
     }
 
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Lottie>) {}
+    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Lottie>) {}
 }
 
 #endif
