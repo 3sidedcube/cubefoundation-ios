@@ -8,12 +8,16 @@
 
 import SwiftUI
 
-typealias ImageName = Image.Name
+public typealias ImageName = Image.Name
 
-extension Image {
+public extension Image {
 
     struct Name: ResourceName {
-        var string: String
+        public var string: String
+
+        public init(string: String) {
+            self.string = string
+        }
     }
 
     init(_ name: Name) {

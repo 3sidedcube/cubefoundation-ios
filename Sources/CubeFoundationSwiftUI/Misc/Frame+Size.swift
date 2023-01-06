@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
 
     /// Positions this view within an invisible frame with the specified size.
     /// - Parameters:

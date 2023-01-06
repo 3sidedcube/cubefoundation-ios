@@ -8,12 +8,17 @@
 
 import SwiftUI
 
-typealias FontName = Font.Name
+public typealias FontName = Font.Name
 
-extension Font {
+public extension Font {
 
     /// A name to use for fonts.
     struct Name: ResourceName {
-        var string: String
+
+        public var string: String
+
+        public init(string: String) {
+            self.string = string
+        }
     }
 }

@@ -8,18 +8,21 @@
 
 import Foundation
 
-protocol ResourceName: ExpressibleByStringLiteral {
+public protocol ResourceName: ExpressibleByStringLiteral {
     var string: String { get set }
     init(string: String)
 }
 
-extension ResourceName {
+public extension ResourceName {
+
     init(unicodeScalarLiteral: UnicodeScalar) {
         self.init(string: String(unicodeScalarLiteral))
     }
+
     init(extendedGraphemeClusterLiteral: Character) {
         self.init(string: String(extendedGraphemeClusterLiteral))
     }
+
     init(stringLiteral: String) {
         self.init(string: stringLiteral)
     }

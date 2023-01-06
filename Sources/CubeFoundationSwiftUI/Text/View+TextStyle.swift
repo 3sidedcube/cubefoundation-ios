@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Text {
+public extension Text {
 
     /// Applies all aspects of a `TextStyle` to this `Text`.
     @available(iOS, obsoleted: 16.0, message: "Use `View.style(_ style: TextStyle)`")
@@ -26,7 +26,7 @@ extension Text {
     }
 }
 
-extension View {
+public extension View {
 
     /// Applies all aspects of a `TextStyle` to this `View`.
     @available(iOS 16.0, *)

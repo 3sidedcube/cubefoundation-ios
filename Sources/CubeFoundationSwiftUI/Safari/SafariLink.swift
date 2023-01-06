@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// A control for navigating to a URL within a `SafariView`
-struct SafariLink<Label>: View where Label: View {
+public struct SafariLink<Label>: View where Label: View {
 
     /// The URL for the link.
     var destination: URL?
@@ -19,7 +19,7 @@ struct SafariLink<Label>: View where Label: View {
 
     @State var showSafari = false
 
-    var body: some View {
+    public var body: some View {
         if let destination {
             Button(action: { showSafari = true }, label: label)
                 .fullScreenCover(isPresented: $showSafari) {

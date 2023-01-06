@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension Font.Weight {
+public extension Font.Weight {
 
     /// The `String` name of this font weight
     var name: String {

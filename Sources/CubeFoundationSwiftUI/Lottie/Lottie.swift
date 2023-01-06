@@ -14,7 +14,7 @@ import Lottie
 // MARK: - Lottie
 
 /// A `UIViewRepresentable` that shows a Lottie animation
-struct Lottie: UIViewRepresentable {
+public struct Lottie: UIViewRepresentable {
 
     /// Name of the lottie file
     var name: String

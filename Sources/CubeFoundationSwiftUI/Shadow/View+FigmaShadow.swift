@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
 
     /// Applies a `FigmaShadow` to this `View`.
     /// - Parameter shadow: `FigmaShadow`
