@@ -21,7 +21,7 @@ public struct TextStyle {
         weight: Font.Weight,
         size: CGFloat,
         lineHeight: CGFloat,
-        letter: CGFloat,
+        letter: CGFloat = 0,
         underline: Bool = false
     ) {
         self.font = font
