@@ -25,6 +25,9 @@ public struct Lottie: UIViewRepresentable {
     /// Loop mode of the lottie animation
     var loopMode: LottieLoopMode = .playOnce
 
+    /// Whether this view should hide upon completion
+    var hideOnCompletion: Bool = false
+
     private var animationView = LottieAnimationView()
 
     public func makeUIView(context: UIViewRepresentableContext<Lottie>) -> UIView {
@@ -33,7 +36,9 @@ public struct Lottie: UIViewRepresentable {
         animationView.animation = Animation.named(name.string)
         animationView.contentMode = contentMode
         animationView.loopMode = loopMode
-        animationView.play(completion: { animationView.isHidden = $0 })
+        animationView.play { complete in
+            animationView.isHidden = complete && hideOnCompletion
+        }
 
         animationView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationView)
