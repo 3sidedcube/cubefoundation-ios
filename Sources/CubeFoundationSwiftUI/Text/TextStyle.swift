@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct TextStyle {
+public struct TextStyle: Hashable {
     var font: Font.Name
     var weight: Font.Weight
     var size: CGFloat
