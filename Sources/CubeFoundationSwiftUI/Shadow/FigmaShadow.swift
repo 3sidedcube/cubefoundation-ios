@@ -15,4 +15,11 @@ public struct FigmaShadow {
     var y: CGFloat
     var blur: CGFloat
     var color: Color
+
+    public init(x: CGFloat, y: CGFloat, blur: CGFloat, color: Color) {
+        self.x = x
+        self.y = y
+        self.blur = blur
+        self.color = color
+    }
 }
