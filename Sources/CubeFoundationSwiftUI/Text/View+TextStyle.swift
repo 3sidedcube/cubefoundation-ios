@@ -30,8 +30,7 @@ public extension TextField {
 
     /// Applies all aspects of a `TextStyle` to this `TextField`.
     ///
-    /// - Warning:
-    /// `.tracking` and `.underline` are not supported
+    /// - Warning: `.tracking` and `.underline` are not supported
     @available(iOS, obsoleted: 16.0, message: "Use `View.style(_ style: TextStyle)`")
     func style(_ style: TextStyle) -> some View {
         // Initialise as a UIFont to get the intrinsic line height.
