@@ -1,5 +1,5 @@
 //
-//  Frame+Size.swift
+//  View+Extensions.swift
 //  CubeFoundation
 //
 //  Created by Sam Davis on 04/01/2023.
@@ -24,5 +24,22 @@ public extension View {
             height: size,
             alignment: alignment
         )
+    }
+
+    /// Implement a conditional modifier
+    ///
+    /// - Parameters:
+    ///   - condition: Condition of the `if` statement
+    ///   - transform: Mapping of `self` to some `View`
+    /// - Returns: `View`
+    @ViewBuilder func `if`<Transform: View>(
+        _ condition: Bool,
+        transform: (Self) -> Transform
+    ) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
     }
 }
