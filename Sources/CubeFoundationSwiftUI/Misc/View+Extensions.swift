@@ -26,8 +26,8 @@ public extension View {
         )
     }
 
-    /// Implement a conditional modifier
-    ///
+    /// Implement a conditional modifier.
+    /// - Warning: Native methods are preferred. Only use if absolutely necessary.
     /// - Parameters:
     ///   - condition: Condition of the `if` statement
     ///   - transform: Mapping of `self` to some `View`
