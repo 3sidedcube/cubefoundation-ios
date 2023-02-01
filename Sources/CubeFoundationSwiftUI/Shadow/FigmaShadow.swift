@@ -11,10 +11,10 @@ import SwiftUI
 
 /// A shadow from a Figma file
 public struct FigmaShadow: Hashable {
-    var x: CGFloat
-    var y: CGFloat
-    var blur: CGFloat
-    var color: Color
+    public var x: CGFloat
+    public var y: CGFloat
+    public var blur: CGFloat
+    public var color: Color
 
     public init(x: CGFloat, y: CGFloat, blur: CGFloat, color: Color) {
         self.x = x
