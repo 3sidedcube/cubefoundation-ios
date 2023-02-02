@@ -17,7 +17,7 @@ public struct SafariLink<Label>: View where Label: View {
     /// The label to display for this link.
     @ViewBuilder var label: () -> Label
 
-    @State var showSafari = false
+    @State private var showSafari = false
 
     public var body: some View {
         if let destination {
