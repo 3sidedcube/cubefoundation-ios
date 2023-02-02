@@ -9,12 +9,12 @@
 import SwiftUI
 
 public struct TextStyle: Hashable {
-    var font: Font.Name
-    var weight: Font.Weight
-    var size: CGFloat
-    var lineHeight: CGFloat
-    var letter: CGFloat
-    var underline = false
+    public var font: Font.Name
+    public var weight: Font.Weight
+    public var size: CGFloat
+    public var lineHeight: CGFloat
+    public var letter: CGFloat
+    public var underline = false
 
     public init(
         font: Font.Name,

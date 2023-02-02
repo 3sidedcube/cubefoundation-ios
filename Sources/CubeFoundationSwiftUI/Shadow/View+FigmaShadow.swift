@@ -14,7 +14,7 @@ public extension View {
     /// - Parameter shadow: `FigmaShadow`
     /// - Returns: A `View` with a `FigmaShadow` applied according to the value you supply.
     func shadow(_ shadow: FigmaShadow) -> some View {
-        return self.shadow(
+        self.shadow(
             color: shadow.color,
             radius: shadow.blur / 2.0,
             x: shadow.x,
