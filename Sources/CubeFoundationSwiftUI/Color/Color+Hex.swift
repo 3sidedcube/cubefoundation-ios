@@ -13,7 +13,7 @@ public extension Color {
     /// RGBA hex `String`
     typealias RGBAHex = String
 
-    /// Initialize `UIColor` with the given HEX `string`.
+    /// Initialize `Color` with the given hex `string`.
     ///
     /// The `string` can be of the form:
     /// - RGB (12-bit)
@@ -63,7 +63,7 @@ public extension Color {
     }
 
 
-    /// `UIColor` to RGB HEX `String`
+    /// `Color` to RGB hex `String`
     ///
     /// - Parameter opacity: Include the opacity component
     func hexString(opacity: Bool = true) -> String {

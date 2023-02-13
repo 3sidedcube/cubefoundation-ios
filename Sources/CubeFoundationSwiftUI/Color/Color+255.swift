@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension Color {
 
-    /// Shorthand for creating a `UIColor` with RGBA ranges in [0, 255].
+    /// Shorthand for creating a `Color` with RGBA ranges in [0, 255].
     ///
     /// - Parameters:
     ///   - colorSpace: Color space, defaults to `.sRGB`
@@ -34,7 +34,7 @@ public extension Color {
         )
     }
 
-    /// Shorthand for creating a `UIColor` with white in [0, 255].
+    /// Shorthand for creating a `Color` with white in [0, 255].
     ///
     /// - Parameters:
     ///   - colorSpace: Color space, defaults to `.sRGB`
