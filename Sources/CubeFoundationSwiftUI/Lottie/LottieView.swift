@@ -1,5 +1,5 @@
 //
-//  Lottie.swift
+//  LottieView.swift
 //  CubeFoundation
 //
 //  Created by Sam Davis on 04/01/2023.
@@ -14,7 +14,7 @@ import Lottie
 // MARK: - Lottie
 
 /// A `UIViewRepresentable` that shows a Lottie animation
-public struct Lottie: UIViewRepresentable {
+public struct LottieView: UIViewRepresentable {
 
     /// Name of the lottie file
     public var name: Name
