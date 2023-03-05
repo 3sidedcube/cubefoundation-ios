@@ -11,9 +11,9 @@
 import SwiftUI
 import Lottie
 
-public typealias LottieName = Lottie.Name
+public typealias LottieName = LottieView.Name
 
-public extension Lottie {
+public extension LottieView {
 
     struct Name: ResourceName {
         public var string: String
