@@ -17,32 +17,42 @@ import Lottie
 public struct Lottie: UIViewRepresentable {
 
     /// Name of the lottie file
-    var name: Name
+    public var name: Name
 
     /// The content mode of the lottie animation
-    var contentMode: UIView.ContentMode
+    public var contentMode: UIView.ContentMode
 
     /// Loop mode of the lottie animation
-    var loopMode: LottieLoopMode = .playOnce
+    public var loopMode: LottieLoopMode
 
     /// Whether this view should hide upon completion
-    var hideOnCompletion = false
+    public var hideOnCompletion: Bool
+
+    public init(
+        _ name: Name,
+        contentMode: UIView.ContentMode = .scaleAspectFit,
+        loopMode: LottieLoopMode = .playOnce,
+        hideOnCompletion: Bool = false
+    )
 
     private var animationView = LottieAnimationView()
 
-    public func makeUIView(context: UIViewRepresentableContext<Lottie>) -> UIView {
+    public func makeUIView(
+        context: UIViewRepresentableContext<Lottie>
+    ) -> UIView {
         let view = UIView(frame: .zero)
 
         animationView.animation = LottieAnimation.named(name.string)
         animationView.contentMode = contentMode
         animationView.loopMode = loopMode
         animationView.play { complete in
-            animationView.isHidden = complete && hideOnCompletion
+            guard hideOnCompletion else { return }
+            animationView.isHidden = complete
         }
 
-        animationView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationView)
 
+        animationView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
@@ -51,7 +61,10 @@ public struct Lottie: UIViewRepresentable {
         return view
     }
 
-    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Lottie>) {}
+    public func updateUIView(
+        _ uiView: UIView,
+        context: UIViewRepresentableContext<Lottie>
+    ) {}
 }
 
 #endif
