@@ -33,12 +33,17 @@ public struct LottieView: UIViewRepresentable {
         contentMode: UIView.ContentMode = .scaleAspectFit,
         loopMode: LottieLoopMode = .playOnce,
         hideOnCompletion: Bool = false
-    )
+    ) {
+        self.name = name
+        self.contentMode = contentMode
+        self.loopMode = loopMode
+        self.hideOnCompletion = hideOnCompletion
+    }
 
     private var animationView = LottieAnimationView()
 
     public func makeUIView(
-        context: UIViewRepresentableContext<Lottie>
+        context: UIViewRepresentableContext<LottieView>
     ) -> UIView {
         let view = UIView(frame: .zero)
 
@@ -63,8 +68,10 @@ public struct LottieView: UIViewRepresentable {
 
     public func updateUIView(
         _ uiView: UIView,
-        context: UIViewRepresentableContext<Lottie>
-    ) {}
+        context: UIViewRepresentableContext<LottieView>
+    ) {
+        // do nothing
+    }
 }
 
 #endif
