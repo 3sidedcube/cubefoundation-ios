@@ -26,14 +26,14 @@ public struct Lottie: UIViewRepresentable {
     var loopMode: LottieLoopMode = .playOnce
 
     /// Whether this view should hide upon completion
-    var hideOnCompletion: Bool = false
+    var hideOnCompletion = false
 
     private var animationView = LottieAnimationView()
 
     public func makeUIView(context: UIViewRepresentableContext<Lottie>) -> UIView {
         let view = UIView(frame: .zero)
 
-        animationView.animation = Animation.named(name.string)
+        animationView.animation = LottieAnimation.named(name.string)
         animationView.contentMode = contentMode
         animationView.loopMode = loopMode
         animationView.play { complete in
