@@ -9,7 +9,8 @@
 import SwiftUI
 
 public struct TextStyle: Hashable {
-    public var font: Font.Name
+
+    public var font: CustomFont
     public var weight: Font.Weight
     public var size: CGFloat
     public var lineHeight: CGFloat
@@ -17,7 +18,7 @@ public struct TextStyle: Hashable {
     public var underline = false
 
     public init(
-        font: Font.Name,
+        font: CustomFont,
         weight: Font.Weight,
         size: CGFloat,
         lineHeight: CGFloat,
@@ -30,5 +31,27 @@ public struct TextStyle: Hashable {
         self.lineHeight = lineHeight
         self.letter = letter
         self.underline = underline
+    }
+
+    // MARK: - Helper
+
+    /// Make a `Font`
+    public var mappedFont: Font {
+        switch font {
+        case .system:
+            return .system(size: size)
+        case let .custom(name):
+            return .custom(name, size: size)
+        }
+    }
+
+    /// Make a `UIFont`
+    public var uiFont: UIFont? {
+        switch font {
+        case .system:
+            return UIFont.systemFont(ofSize: size, weight: weight.uiWeight)
+        case let .custom(name):
+            return UIFont(name: "\(name) \(weight.name)", size: size)
+        }
     }
 }
