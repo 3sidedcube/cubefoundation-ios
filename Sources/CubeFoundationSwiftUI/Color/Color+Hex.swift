@@ -62,7 +62,6 @@ public extension Color {
         )
     }
 
-
     /// `Color` to RGB hex `String`
     ///
     /// - Parameter opacity: Include the opacity component
