@@ -15,11 +15,11 @@ public enum CustomFont: ExpressibleByStringLiteral, Equatable, Hashable {
     case system
 
     /// Custom font with name
-    case custom(String)
+    case custom(Font.Name)
 
     /// Initialize with string literal making a custom font with name
     /// - Parameter value: `String`
     public init(stringLiteral value: String) {
-        self = .custom(value)
+        self = .custom(.init(stringLiteral: value))
     }
 }

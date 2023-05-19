@@ -41,7 +41,7 @@ public struct TextStyle: Hashable {
         case .system:
             return .system(size: size)
         case let .custom(name):
-            return .custom(name, size: size)
+            return .custom(name.string, size: size)
         }
     }
 
