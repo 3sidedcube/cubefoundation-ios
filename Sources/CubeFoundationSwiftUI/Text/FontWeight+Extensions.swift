@@ -77,7 +77,7 @@ extension Font.Weight: ExpressibleByIntegerLiteral {
         case .medium:
             return .medium
         case .regular:
-            return .medium
+            return .regular
         case .light:
             return .light
         case .thin:
