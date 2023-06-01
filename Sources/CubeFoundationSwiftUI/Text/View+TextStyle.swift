@@ -13,12 +13,11 @@ public extension Text {
     @available(iOS, obsoleted: 16.0, message: "Use `View.style(_ style: TextStyle)`")
     func style(_ style: TextStyle) -> some View {
         // Initialise as a UIFont to get the intrinsic line height.
-        let uiFont = UIFont(name: "\(style.font.string) \(style.weight.name)", size: style.size)
-        let fontLineHeight = uiFont?.lineHeight ?? style.size
+        let fontLineHeight = style.uiFont?.lineHeight ?? style.size
         let lineSpacing = style.lineHeight - fontLineHeight
 
         return self
-            .font(.custom(style.font.string, size: style.size).weight(style.weight))
+            .font(style.mappedFont.weight(style.weight))
             .tracking(style.letter)
             .underline(style.underline)
             .lineSpacing(lineSpacing)
@@ -32,12 +31,11 @@ public extension View {
     @available(iOS 16.0, *)
     func style(_ style: TextStyle) -> some View {
         // Initialise as a UIFont to get the intrinsic line height.
-        let uiFont = UIFont(name: "\(style.font.string) \(style.weight.name)", size: style.size)
-        let fontLineHeight = uiFont?.lineHeight ?? style.size
+        let fontLineHeight = style.uiFont?.lineHeight ?? style.size
         let lineSpacing = style.lineHeight - fontLineHeight
 
         return self
-            .font(.custom(style.font.string, size: style.size).weight(style.weight))
+            .font(style.mappedFont.weight(style.weight))
             .tracking(style.letter)
             .underline(style.underline)
             .lineSpacing(lineSpacing)

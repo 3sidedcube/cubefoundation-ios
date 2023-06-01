@@ -62,4 +62,30 @@ extension Font.Weight: ExpressibleByIntegerLiteral {
             return "Unknown"
         }
     }
+
+    /// Map to `UIFont.Weight` equivalent
+    public var uiWeight: UIFont.Weight {
+        switch self {
+        case .black:
+            return .black
+        case .heavy:
+            return .heavy
+        case .bold:
+            return .bold
+        case .semibold:
+            return .semibold
+        case .medium:
+            return .medium
+        case .regular:
+            return .regular
+        case .light:
+            return .light
+        case .thin:
+            return .thin
+        case .ultraLight:
+            return .ultraLight
+        default:
+            return .regular
+        }
+    }
 }
