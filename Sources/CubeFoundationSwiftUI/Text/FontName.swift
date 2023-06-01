@@ -13,12 +13,18 @@ public typealias FontName = Font.Name
 public extension Font {
 
     /// A name to use for fonts.
-    struct Name: ResourceName {
+    enum Name: ResourceName {
 
-        public var string: String
+        /// System font
+        case system
 
-        public init(string: String) {
-            self.string = string
+        /// Custom font with name
+        case custom(String)
+
+        /// Initialize with string literal making a custom font with name
+        /// - Parameter value: `String`
+        public init(string value: String) {
+            self = .custom(value)
         }
     }
 }

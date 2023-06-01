@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol ResourceName: ExpressibleByStringLiteral, Hashable {
-    var string: String { get set }
+
     init(string: String)
 }
 

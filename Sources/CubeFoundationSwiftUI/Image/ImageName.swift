@@ -13,6 +13,7 @@ public typealias ImageName = Image.Name
 public extension Image {
 
     struct Name: ResourceName {
+
         public var string: String
 
         public init(string: String) {

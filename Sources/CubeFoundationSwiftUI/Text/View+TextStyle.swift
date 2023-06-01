@@ -17,7 +17,7 @@ public extension Text {
         let lineSpacing = style.lineHeight - fontLineHeight
 
         return self
-            .font(style.mappedFont.weight(style.weight))
+            .font(style.font.weight(style.weight))
             .tracking(style.letter)
             .underline(style.underline)
             .lineSpacing(lineSpacing)
@@ -35,7 +35,7 @@ public extension View {
         let lineSpacing = style.lineHeight - fontLineHeight
 
         return self
-            .font(style.mappedFont.weight(style.weight))
+            .font(style.font.weight(style.weight))
             .tracking(style.letter)
             .underline(style.underline)
             .lineSpacing(lineSpacing)
