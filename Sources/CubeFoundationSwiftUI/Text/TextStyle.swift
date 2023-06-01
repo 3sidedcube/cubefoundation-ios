@@ -18,7 +18,7 @@ public struct TextStyle: Hashable {
     public var underline = false
 
     public init(
-        fontName: Font.Name,
+        _ fontName: Font.Name,
         weight: Font.Weight,
         size: CGFloat,
         lineHeight: CGFloat,
