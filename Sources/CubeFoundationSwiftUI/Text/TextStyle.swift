@@ -35,13 +35,24 @@ public struct TextStyle: Hashable {
 
     // MARK: - Helper
 
+    /// Scaled text size
+    private var scaledSize: CGFloat {
+         UIFontMetrics.default.scaledValue(for: size)
+    }
+
+    /// Get the line spacing
+    /// TODO - Are we implementing lineHeight correctly? Is it an iOS thing?
+    var lineSpacing: CGFloat {
+        lineHeight - (uiFont?.lineHeight ?? size)
+    }
+
     /// Make a `Font`
     public var font: Font {
         switch fontName {
         case .system:
-            return .system(size: size)
+            return .system(size: scaledSize)
         case let .custom(name):
-            return .custom(name, size: size)
+            return .custom(name, size: scaledSize)
         }
     }
 
@@ -49,9 +60,9 @@ public struct TextStyle: Hashable {
     public var uiFont: UIFont? {
         switch fontName {
         case .system:
-            return UIFont.systemFont(ofSize: size, weight: weight.uiWeight)
+            return UIFont.systemFont(ofSize: scaledSize, weight: weight.uiWeight)
         case let .custom(name):
-            return UIFont(name: "\(name) \(weight.name)", size: size)
+            return UIFont(name: "\(name) \(weight.name)", size: scaledSize)
         }
     }
 }

@@ -7,38 +7,21 @@
 
 import SwiftUI
 
+// TODO: Delete this file when iOS 15 is no longer supported
+
 public extension Text {
 
     /// Applies all aspects of a `TextStyle` to this `Text`.
     @available(iOS, obsoleted: 16.0, message: "Use `View.style(_ style: TextStyle)`")
-    func style(_ style: TextStyle) -> some View {
-        // Initialise as a UIFont to get the intrinsic line height.
-        let fontLineHeight = style.uiFont?.lineHeight ?? style.size
-        let lineSpacing = style.lineHeight - fontLineHeight
-
-        return self
-            .font(style.font.weight(style.weight))
-            .tracking(style.letter)
-            .underline(style.underline)
-            .lineSpacing(lineSpacing)
-            .padding(.vertical, lineSpacing / 2)
-    }
-}
-
-public extension View {
-
-    /// Applies all aspects of a `TextStyle` to this `View`.
-    @available(iOS 16.0, *)
-    func style(_ style: TextStyle) -> some View {
-        // Initialise as a UIFont to get the intrinsic line height.
-        let fontLineHeight = style.uiFont?.lineHeight ?? style.size
-        let lineSpacing = style.lineHeight - fontLineHeight
-
-        return self
-            .font(style.font.weight(style.weight))
-            .tracking(style.letter)
-            .underline(style.underline)
-            .lineSpacing(lineSpacing)
-            .padding(.vertical, lineSpacing / 2)
+    @ViewBuilder func style(_ style: TextStyle) -> some View {
+        if #available(iOS 16, *) {
+            self.modifier(ScaledTextStyle(style: style))
+        } else {
+            self.font(style.font.weight(style.weight))
+                .tracking(style.letter)
+                .underline(style.underline)
+                .lineSpacing(style.lineSpacing)
+                .padding(.vertical, style.lineSpacing / 2)
+        }
     }
 }
