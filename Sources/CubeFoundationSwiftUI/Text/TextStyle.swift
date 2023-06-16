@@ -43,7 +43,9 @@ public struct TextStyle: Hashable {
     /// Get the line spacing
     /// TODO - Are we implementing lineHeight correctly? Is it an iOS thing?
     var lineSpacing: CGFloat {
-        lineHeight - (uiFont?.lineHeight ?? size)
+        let scale = size != 0 ? scaledSize / size : 1
+        let fontLineHeight = uiFont?.lineHeight ?? size
+        return scale * (lineHeight - fontLineHeight)
     }
 
     /// Make a `Font`
