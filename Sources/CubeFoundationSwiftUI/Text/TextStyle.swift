@@ -33,20 +33,25 @@ public struct TextStyle: Hashable {
         self.underline = underline
     }
 
-    // MARK: - Helper
+    // MARK: - Font Scaling
 
     /// Scaled text size
-    private var scaledSize: CGFloat {
+    public var scaledSize: CGFloat {
          UIFontMetrics.default.scaledValue(for: size)
+    }
+
+    /// Scaled size relative to default size
+    public var fontScale: CGFloat {
+        size > 0 ? scaledSize / size : 1
     }
 
     /// Get the line spacing
     /// TODO - Are we implementing lineHeight correctly? Is it an iOS thing?
-    var lineSpacing: CGFloat {
-        let scale = size != 0 ? scaledSize / size : 1
-        let fontLineHeight = uiFont?.lineHeight ?? size
-        return scale * (lineHeight - fontLineHeight)
+    public var lineSpacing: CGFloat {
+        fontScale * lineHeight - (uiFont?.lineHeight ?? scaledSize)
     }
+
+    // MARK: - Font Mapping
 
     /// Make a `Font`
     public var font: Font {
