@@ -13,6 +13,10 @@ public struct SafariView: UIViewControllerRepresentable {
 
     let url: URL
 
+    public init(url: URL) {
+        self.url = url
+    }
+
     public func makeUIViewController(
         context: UIViewControllerRepresentableContext<Self>
     ) -> SFSafariViewController {
