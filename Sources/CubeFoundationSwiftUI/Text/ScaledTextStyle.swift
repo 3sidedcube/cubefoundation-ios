@@ -9,7 +9,6 @@
 import SwiftUI
 
 /// Apply a `TextStyle` catering for the device's dynamic text size.
-@available(iOS 16.0, *)
 public struct ScaledTextStyle: ViewModifier {
 
     @Environment(\.sizeCategory) var sizeCategory
@@ -29,7 +28,6 @@ public struct ScaledTextStyle: ViewModifier {
 
 public extension View {
 
-    @available(iOS 16.0, *)
     func style(_ style: TextStyle) -> some View {
         self.modifier(ScaledTextStyle(style: style))
     }
