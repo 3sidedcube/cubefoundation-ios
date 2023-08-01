@@ -13,6 +13,12 @@ extension Font.Weight: ExpressibleByIntegerLiteral {
     /// Initialise `Font.Weight` from numerical value.
     /// - Parameter value: `IntegerLiteralType`
     public init(integerLiteral value: IntegerLiteralType) {
+        self.init(integer: value)
+    }
+
+    /// Initialize from an integer `Value`
+    /// - Parameter value: `Int`
+    public init(integer value: Int) {
         switch value {
         case 100:
             self = .ultraLight
