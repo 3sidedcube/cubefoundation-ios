@@ -15,6 +15,12 @@ public struct ScaledTextStyle: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
     public var style: TextStyle
 
+    /// Public memberwise initializer
+    /// - Parameter style: `TextStyle`
+    public init(style: TextStyle) {
+        self.style = style
+    }
+
     public func body(content: Content) -> some View {
         content
             .font(style.font.weight(style.weight))
