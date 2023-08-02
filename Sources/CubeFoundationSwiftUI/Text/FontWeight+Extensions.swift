@@ -16,7 +16,7 @@ extension Font.Weight: ExpressibleByIntegerLiteral {
         self.init(integer: value)
     }
 
-    /// Initialize from an integer `Value`
+    /// Initialize from an integer `value`.
     /// - Parameter value: `Int`
     public init(integer value: Int) {
         switch value {
