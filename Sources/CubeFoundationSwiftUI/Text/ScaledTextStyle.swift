@@ -23,12 +23,3 @@ public struct ScaledTextStyle: ViewModifier {
             .padding(.vertical, style.lineSpacing / 2)
     }
 }
-
-// MARK: - View + ScaledTextStyle
-
-public extension View {
-
-    func style(_ style: TextStyle) -> some View {
-        self.modifier(ScaledTextStyle(style: style))
-    }
-}
