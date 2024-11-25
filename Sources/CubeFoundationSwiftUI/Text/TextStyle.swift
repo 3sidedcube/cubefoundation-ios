@@ -57,7 +57,7 @@ public struct TextStyle: Hashable {
     public var font: Font {
         switch fontName {
         case .system:
-            return .system(size: scaledSize)
+            return .system(size: scaledSize, weight: weight)
         case let .custom(name):
             return .custom(name, size: scaledSize)
         }
