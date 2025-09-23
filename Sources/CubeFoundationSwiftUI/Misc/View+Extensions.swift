@@ -42,4 +42,40 @@ public extension View {
             self
         }
     }
+
+    /// Applies a transform if the optional value is non-nil.
+    ///
+    /// - Parameters:
+    ///   - optional: An optional value to unwrap.
+    ///   - transform: A closure that modifies the view using the unwrapped value.
+    /// - Returns: Either the transformed view or the original view.
+    @ViewBuilder
+    func `ifLet`<Transform: View, Optional: Any>(
+        _ optional: Optional?,
+        transform: (Self, Optional) -> Transform
+    ) -> some View {
+        if let optional {
+            transform(self, optional)
+        } else {
+            self
+        }
+    }
+
+    /// Apply rounded corners and an `inner` stroke to the the view.
+    /// - Parameters:
+    ///   - cornerRadius: The radius of the corner
+    ///   - color: The color of the border
+    ///   - width: The width of the border
+    func roundedBorder(
+        cornerRadius: CGFloat,
+        color: Color,
+        width: CGFloat = 1
+    ) -> some View {
+        clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+            .overlay {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .strokeBorder(color, lineWidth: width)
+            }
+    }
 }
+
